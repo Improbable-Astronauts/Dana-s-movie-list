@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+  <h1>Add a New Movie</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="new_movie_name" />
+    <br  />
+    <input type="submit" value="Add New Movie"  />
+  </form>
+
+
+<h1>Movie List</h1>
+  {% if movies_list %}
+      <ul>
+      {% for movie in movies_list %}
+          <li>{{ movie.movie_name }}</li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No movies are available.</p>
+  {% endif %}
+
+</body>
+</html>
